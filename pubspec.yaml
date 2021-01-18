@@ -1,0 +1,17 @@
+name: dartlang_playground
+
+description: A dartlang playground.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  intl: ^0.16.0
+
+dev_dependencies:
+  test: ^1.15.7
