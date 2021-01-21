@@ -17,6 +17,6 @@ void main() {
   });
 
   test('http server', (){
-
+    expect(url, isNull);
   });
 }
