@@ -7,6 +7,7 @@ CONFIG = {
   'tour_src_path'  => File.join(SOURCE, "lib", "tour"),
   'tour_test_path' => File.join(SOURCE, "test", "tour"),
   'dart_ext' => "dart",
+  'project_root_name' => "dartlang_playground",
   'authorized' => "sinlov",
   'mail' => "sinlovppt@gmail.com",
 }
@@ -47,7 +48,7 @@ namespace :tour do
       abort("rake aborted! source_file not found, please check at: #{source_file}")
     end
     target_folder = File.join(CONFIG['tour_test_path'], item_name)
-    if File.directory?(target_folder)
+    if not File.directory?(target_folder)
       mkdir_p target_folder
     end
     target_test_file = File.join(target_folder, "#{title_name}_test.#{CONFIG['dart_ext']}")
@@ -61,6 +62,7 @@ namespace :tour do
       post.puts "// mail: #{CONFIG['mail']}"
       post.puts ""
       post.puts "import 'package:test/test.dart';"
+      post.puts "import 'package:#{CONFIG['project_root_name']}/#{tour_name}/#{item_name}/#{title_name}.dart';"
       post.puts ""
       post.puts "main() {"
       post.puts "  group('#{title_name}', () {"
