@@ -3,12 +3,12 @@
 // mail: sinlovppt@gmail.com
 
 import 'package:test/test.dart';
-import 'package:dartlang_playground/tour/built_in_types/symbols.dart';
 
 main() {
   group('symbols', () {
     test('get', () {
-       expect(#redex, isNotNull);
+      expect(#symbol_redex, isNotNull);
+       print('symbol_redex hash: ${#symbol_redex.hashCode}');
        expect(#bar, isNotNull);
     });
   });
