@@ -27,9 +27,9 @@ def get_stdin(message)
 end
 
 namespace :tour do
-  tour_name = 'tour'
+  ns_name_tour = 'tour'
 
-  desc "#{"mk #{tour_name} test case".rjust(20, '-')} env: item=built_in_types t=string . Warning, this task will check source file at: #{CONFIG['tour_src_path']} and mark at #{CONFIG['tour_test_path']}"
+  desc "#{"mk #{ns_name_tour} test case".rjust(20, '-')} env: item=built_in_types t=string . Warning, this task will check source file at: #{CONFIG['tour_src_path']} and mark at #{CONFIG['tour_test_path']}"
   task :'test' do
     abort("rake aborted: '#{CONFIG['tour_src_path']}' directory not found.") unless FileTest.directory?(CONFIG['tour_src_path'])
     abort("rake aborted: '#{CONFIG['tour_test_path']}' directory not found.") unless FileTest.directory?(CONFIG['tour_test_path'])
@@ -55,27 +55,29 @@ namespace :tour do
     if File.exist?(target_test_file)
       abort("rake aborted! #{target_test_file} not overwrite") if ask("#{target_test_file} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
     end
-    puts "Creating new test: #{target_test_file}"
+    # puts "-> Creating new test: #{target_test_file}"
     open(target_test_file, 'w') do |post|
-      post.puts "// this test for #{tour_name} => #{item_name} : #{title_name}"
+      post.puts "// this test for #{ns_name_tour} => #{item_name} : #{title_name}"
       post.puts "// authorized #{CONFIG['authorized']} at @#{Date.today.strftime("%Y")}"
       post.puts "// mail: #{CONFIG['mail']}"
       post.puts ""
       post.puts "import 'package:test/test.dart';"
-      post.puts "import 'package:#{CONFIG['project_root_name']}/#{tour_name}/#{item_name}/#{title_name}.dart';"
+      post.puts "import 'package:#{CONFIG['project_root_name']}/#{ns_name_tour}/#{item_name}/#{title_name}.dart';"
       post.puts ""
       post.puts "main() {"
       post.puts "  group('#{title_name}', () {"
       post.puts "    test('#{title_name}', () {"
+      post.puts "       // todo: test case #{title_name}"
       post.puts "       expect('', equals(''));"
       post.puts "    });"
       post.puts "  });"
       post.puts "}"
     end
+    puts "-> Creating finish unit test at: #{target_test_file}"
   end
 
 
-  desc "#{"mk #{tour_name} source".rjust(20, '-')} env: item=built_in_types t=string . Will mk at: #{CONFIG['tour_src_path']}"
+  desc "#{"mk #{ns_name_tour} source".rjust(20, '-')} env: item=built_in_types t=string . Will mk at: #{CONFIG['tour_src_path']}"
   task :'src' do
     abort("rake aborted: '#{CONFIG['tour_src_path']}' directory not found.") unless FileTest.directory?(CONFIG['tour_src_path'])
     item_name = ENV['item']
@@ -89,20 +91,24 @@ namespace :tour do
     item_name = "#{item_name.strip.downcase.gsub('-', '_')}"
     title_name = "#{title_name.strip.downcase.gsub('-', '_')}"
     target_folder = File.join(CONFIG['tour_src_path'], item_name)
-    if File.directory?(target_folder)
+    if not File.directory?(target_folder)
         mkdir_p target_folder
     end
     source_file = File.join(target_folder, "#{title_name}.#{CONFIG['dart_ext']}")
     if File.exist?(source_file)
       abort("rake aborted! #{source_file} not overwrite") if ask("#{source_file} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
     end
-    puts "Creating new source: #{source_file}"
+    # puts "-> Creating new source: #{source_file}"
     open(source_file, 'w') do |post|
-      post.puts "// this source for #{tour_name} => #{item_name} : #{title_name}"
+      post.puts "// this source for #{ns_name_tour} => #{item_name} : #{title_name}"
       post.puts "// authorized #{CONFIG['authorized']} at @#{Date.today.strftime("%Y")}"
       post.puts "// mail: #{CONFIG['mail']}"
       post.puts ""
-      post.puts "// TODO"
+      post.puts "// todo"
     end
+    puts "-> Creating finish source at: #{source_file}"
   end
+
+  desc "do all at namespace #{ns_name_tour} env: item=built_in_types t=string"
+  task :all => ["#{ns_name_tour}:src", "#{ns_name_tour}:test"]
 end

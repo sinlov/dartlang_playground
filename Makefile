@@ -19,15 +19,18 @@ pubUpgrade:
 init: pubGet
 	@echo "init project success"
 
-test:
-	@echo "=> start test at: ${ENV_ROOT_TEST_PATH}"
-	@find ${ENV_ROOT_TEST_PATH} -name "*_test.dart" | xargs dart run test
+analyze:
+	@dart analyze
+
+test: analyze
+	@echo "=> start test"
+	@dart test -r expanded --file-reporter json:reports/tests.json
 
 testCoverage:
-	@find ${ENV_ROOT_TEST_PATH} -name "*_test.dart" | xargs dart run test --coverage coverage
+	@find ${ENV_ROOT_TEST_PATH} -name "*_test.dart" | xargs dart run test -r expanded --coverage coverage
 
 testPlatform:
-	@find ${ENV_ROOT_TEST_PATH} -name "*_test.dart" | xargs dart run test -p "chrome,vm"
+	@find ${ENV_ROOT_TEST_PATH} -name "*_test.dart" | xargs dart run test -r expanded -p "chrome,vm"
 
 helpProjectRoot:
 	@echo "Help: Project root Makefile"

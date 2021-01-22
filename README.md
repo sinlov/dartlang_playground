@@ -1,4 +1,8 @@
+[![dart-ubuntu-latest](https://github.com/sinlov/dartlang_playground/workflows/dart-ubuntu-latest/badge.svg?branch=main)](https://github.com/sinlov/dartlang_playground/actions?query=workflow%3Adart-ubuntu-latest)
+
 # dartlang playground
+
+- [https://github.com/sinlov/dartlang_playground/](https://github.com/sinlov/dartlang_playground/)
 
 ## env
 
