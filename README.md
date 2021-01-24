@@ -12,10 +12,21 @@
 
 ## package
 
+- dev
+
 | item | version |
 |:----------------|:----------------|
-| test | 1.15.7 |
-| intl | 0.16.1 |
+| test | `^1.15.7` |
+| build_runner | `^1.11.0` |
+| json_serializable | `^3.5.1`
+
+- run
+
+| item | version |
+|:----------------|:----------------|
+| intl | `^0.16.0` |
+| characters | `^1.0.0` |
+| json_annotation | `^3.1.1` |
 
 ## run
 
@@ -27,6 +38,9 @@ $ make init
 
 # run test
 $ make test
+
+# run build_runner build, this not neccessary
+$ make build
 ```
 
 ## project tree
@@ -35,13 +49,14 @@ $ make test
 .
 ├── Makefile              # make build
 ├── README.md             # readme
-├── coverage              # test coverage ignore
-│   └── test
+├── build.yaml            # build_runner build set
+├── coverage              # test coverage, out of versioning
+├── dart_test.yaml        # dart test config
 ├── lib                   # source code
-│   └── tour
+│   └── tour                # source of tour
 ├── pubspec.lock          # pub lock
 ├── pubspec.yaml          # pub define
+├── reports               # test reports, out of versioning
 └── test                  # test folder
-    └── tour
-        └── variables
+    └── tour                # unit test of tour
 ```
