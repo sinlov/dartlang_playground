@@ -19,3 +19,9 @@ dev_dependencies:
   test: ^1.15.7
   build_runner: ^1.11.0
   json_serializable: ^3.5.1
+
+
+# https://dart.cn/guides/language/analysis-options
+analyzer:
+  exclude:
+    - lib/tour/libraries_and_visibility/using_libraries.dart
