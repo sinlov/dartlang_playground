@@ -66,7 +66,7 @@ main() {
 
     test('final member constructor', () {
       var p = new E(2, 3);
-      expect(p.distanceFromOrigin, equals(3.605551275463989));
+      expect(3.6 < p.distanceFromOrigin && p.distanceFromOrigin < 3.7, isTrue);
     });
 
     test('redirecting constructors', () {
