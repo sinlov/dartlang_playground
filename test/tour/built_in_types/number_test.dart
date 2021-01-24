@@ -3,6 +3,22 @@ import 'package:dartlang_playground/tour/built_in_types/number.dart';
 
 main() {
   group('Numbers', () {
+
+    test('cast', (){
+      // int to string
+      var intA = 2;
+      expect(intA.toString(), equals('2'));
+      // double to string
+      var doubleB = 2.2;
+      expect(doubleB.toString(), equals('2.2'));
+      // int to double
+      expect(intA.toDouble() is double, isTrue);
+      // string to int
+      expect(int.parse('1'), equals(1));
+      // string to double
+      expect(double.parse('3.3'), equals(3.3));
+    });
+
     test('int', () {
       expect(x, equals(1));
       expect(hex, equals(0xDEADBEEF));

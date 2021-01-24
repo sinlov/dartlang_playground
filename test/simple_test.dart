@@ -1,3 +1,4 @@
+@Tags(['presubmit-only'])
 // more info see https://pub.flutter-io.cn/packages/test
 import 'package:test/test.dart';
 
