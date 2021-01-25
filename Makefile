@@ -19,6 +19,9 @@ pubUpgrade:
 init: pubGet
 	@echo "init project success"
 
+buildClean:
+	@dart run build_runner clean
+
 build:
 	@dart run build_runner build
 

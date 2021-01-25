@@ -11,6 +11,7 @@ main() {
        SortedCollection coll = SortedCollection(sort);
        expect(coll.compare is Function, isTrue);
        expect(coll.compare is Compare, isTrue);
+       // typedefs are simply aliases, they offer a way to check the type of any function
        expect(sortString is CompareType<String>, isTrue);
     });
   });

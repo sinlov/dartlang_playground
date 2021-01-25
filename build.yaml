@@ -18,3 +18,9 @@ targets:
           # ignore_unannotated: false
           # include_if_null: true
           # nullable: true
+      # annotationsdemoBuilder:
+      #   import: "package:annotationsdemo.builder/builder.dart"
+      #   builder_factories: ["AnnotationsdemoBuilder"]
+      #   build_extensions: {".dart": [".g.part"]}
+      #   auto_apply: root_package
+      #   build_to: source

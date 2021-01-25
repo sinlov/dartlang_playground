@@ -373,7 +373,7 @@ packages:
     source: hosted
     version: "0.2.3"
   source_gen:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: source_gen
       url: "https://pub.flutter-io.cn"
