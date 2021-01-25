@@ -49,14 +49,17 @@ $ make build
 .
 ├── Makefile              # make build
 ├── README.md             # readme
+├── Rakefile              # code generator use as: rake -T
 ├── build.yaml            # build_runner build set
 ├── coverage              # test coverage, out of versioning
 ├── dart_test.yaml        # dart test config
 ├── lib                   # source code
+│   ├── playground          # source of playground
 │   └── tour                # source of tour
 ├── pubspec.lock          # pub lock
 ├── pubspec.yaml          # pub define
 ├── reports               # test reports, out of versioning
 └── test                  # test folder
+    ├── playground          # unit test of playground
     └── tour                # unit test of tour
 ```
