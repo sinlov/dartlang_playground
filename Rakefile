@@ -37,7 +37,54 @@ end
 namespace :playground do
   ns_name_playground = 'playground'
 
-  desc "#{"mk #{ns_name_playground} source".rjust(20, '-')} env: pkg=demo_time c=date_time . Will mk at: #{CONFIG['playground_src_path']}"
+  desc "#{"mk #{ns_name_playground} test case".rjust(24, '-')} env: pkg=demo_time c=date_time . Warning, this task will check source file at: #{CONFIG['playground_src_path']} and mark at #{CONFIG['playground_test_path']}"
+  task :'test' do
+    abort("rake aborted: '#{CONFIG['playground_src_path']}' directory not found.") unless FileTest.directory?(CONFIG['playground_src_path'])
+    abort("rake aborted: '#{CONFIG['playground_test_path']}' directory not found.") unless FileTest.directory?(CONFIG['playground_test_path'])
+    pkg_name = ENV['pkg']
+    class_name = ENV['c']
+    if pkg_name == ""
+      abort("rake aborted: must set item="", now is: #{pkg_name}")
+    end
+    if class_name == ""
+      abort("rake aborted: must set t="", now is: #{class_name}")
+    end
+    pkg_name = "#{pkg_name.strip.downcase.gsub('-', '_')}"
+    class_name = "#{class_name.strip.downcase.gsub('-', '_')}"
+    source_file = File.join(CONFIG['playground_src_path'], pkg_name, "#{class_name}.#{CONFIG['dart_ext']}")
+    if not File.exist?(source_file)
+      abort("rake aborted! source_file not found, please check at: #{source_file}")
+    end
+    target_folder = File.join(CONFIG['playground_test_path'], pkg_name)
+    check_folder(target_folder)
+    target_test_file = File.join(target_folder, "#{class_name}_test.#{CONFIG['dart_ext']}")
+    if File.exist?(target_test_file)
+      abort("rake aborted! #{target_test_file} not overwrite") if ask("#{target_test_file} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
+    end
+    class_hump_name = class_name.gsub('_', ' ').gsub(/\b\w/){$&.upcase}.gsub(' ', '')
+    # puts "-> Creating new test: #{target_test_file}"
+    open(target_test_file, 'w') do |line_w|
+      line_w.puts "// this test for #{ns_name_playground} => #{pkg_name} : #{class_hump_name}"
+      line_w.puts "// authorized #{CONFIG['authorized']} at @#{Date.today.strftime("%Y")}"
+      line_w.puts "// mail: #{CONFIG['mail']}"
+      line_w.puts ""
+      line_w.puts "import 'package:test/test.dart';"
+      line_w.puts "import 'package:#{CONFIG['project_root_name']}/#{ns_name_playground}/#{pkg_name}/#{class_name}.dart';"
+      line_w.puts ""
+      line_w.puts "main() {"
+      line_w.puts "  group('#{class_name}', () {"
+      line_w.puts "    test('#{class_name.gsub('_', ' ')}', () {"
+      line_w.puts "       // todo: test case"
+      line_w.puts "       // var #{class_hump_name.gsub(/\b\w/){$&.downcase}} = #{class_hump_name}();"
+      line_w.puts "       expect('', equals(''));"
+      line_w.puts "    });"
+      line_w.puts "  });"
+      line_w.puts "}"
+    end
+    puts "-> Creating finish #{ns_name_playground} unit test at: #{target_test_file}"
+  end
+
+  desc "#{"mk #{ns_name_playground} source".rjust(24, '-')} env: pkg=demo_time c=date_time . Will mk at: #{CONFIG['playground_src_path']}"
   task :'src' do
     abort("rake aborted: '#{CONFIG['playground_src_path']}' directory not found.") unless FileTest.directory?(CONFIG['playground_src_path'])
     pkg_name = ENV['pkg']
@@ -70,6 +117,9 @@ namespace :playground do
     end
     puts "-> Creating finish #{ns_name_playground} source at: #{source_file}"
   end
+
+  desc "do all at namespace #{ns_name_playground} env: pkg=demo_time c=date_time"
+  task :all => ["#{ns_name_playground}:src", "#{ns_name_playground}:test"]
 end
 
 namespace :tour do
@@ -117,7 +167,7 @@ namespace :tour do
       line_w.puts "  });"
       line_w.puts "}"
     end
-    puts "-> Creating finish unit test at: #{target_test_file}"
+    puts "-> Creating finish #{ns_name_tour} unit test at: #{target_test_file}"
   end
 
 
@@ -148,7 +198,7 @@ namespace :tour do
       line_w.puts ""
       line_w.puts "// todo"
     end
-    puts "-> Creating finish source at: #{source_file}"
+    puts "-> Creating finish #{ns_name_tour} source at: #{source_file}"
   end
 
   desc "do all at namespace #{ns_name_tour} env: item=built_in_types t=string"
