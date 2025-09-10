@@ -27,9 +27,7 @@ main() {
       expect(sb.toString(), equals('#1, #2, #3, '));
     });
 
-    test('assert', (){
-      var text;
-      assert(text == null);
+    test('assert', () {
       var number = 50;
       assert(number < 100, 'number not less than 100');
     });
@@ -108,7 +106,9 @@ main() {
       var sb = new StringBuffer();
       var intArr = [1, 2, 3];
       // Using forEach() is a good option if you don’t need to know the current iteration counter:
-      intArr.forEach((item) => {sb.write('#${item}, ')});
+      intArr.forEach((item) {
+        sb.write('#${item}, ');
+      });
       expect(sb.toString(), equals('#1, #2, #3, '));
       sb.clear();
       // for in

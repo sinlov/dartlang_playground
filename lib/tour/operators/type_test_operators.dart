@@ -3,5 +3,5 @@
 // mail: sinlovppt@gmail.com
 
 class Person {
-  String firstName ;
+  late String firstName ;
 }

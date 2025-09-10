@@ -6,18 +6,18 @@ import 'dart:math';
 
 // All uninitialized instance variables have the value null.
 class A {
-  double x; // dim double x init to null。
-  double y; // dim double y init to null
-  double z = 0; // dim double z init to 0。
+  late double x; // dim double x init to null。
+  late double y; // dim double y init to null
+  late double z = 0; // dim double z init to 0。
 
   // If you don’t declare a constructor, a default constructor is provided for you.
   // The default constructor has no arguments and invokes the no-argument constructor in the superclass.
 }
 
 class B {
-  double x; // dim double x init to null。
-  double y; // dim double y init to null
-  double z = 0; // dim double z init to 0。
+  late double y; // dim double y init to null
+  late double x; // dim double x init to null。
+  late double z = 0; // dim double z init to 0。
   B(double x, double y, double z) {
     // this keyword refers to the current instance.
     this.x = x;
@@ -27,9 +27,9 @@ class B {
 }
 
 class C {
-  double x; // dim double x init to null。
-  double y; // dim double y init to null
-  double z = 0; // dim double z init to 0。
+  late double x; // dim double x init to null。
+  late double y; // dim double y init to null
+  late double z = 0; // dim double z init to 0。
   C.origin() {
     x = 0;
     y = 0;

@@ -13,7 +13,7 @@ class Performer{
 // }
 
 class Person{
-  String name;
+  late String name;
 }
 
 class Aggressive{

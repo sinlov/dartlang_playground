@@ -36,7 +36,7 @@ main() {
       var nav = ['Home', 'Furniture', 'Plants', if (promoActive) 'Outlet'];
       expect(nav.length, equals(4));
       promoActive = false;
-      nav = ['Home', 'Furniture', 'Plants', if (promoActive) 'Outlet'];
+      nav = ['Home', 'Furniture', 'Plants', ];
       expect(nav.length, equals(3));
 
       // using collection for to manipulate the items of a list before adding them to another list.

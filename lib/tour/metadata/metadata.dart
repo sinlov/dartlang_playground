@@ -5,7 +5,6 @@
 // all Dart code: @deprecated and @override.
 
 // use @required
-import 'package:meta/meta.dart';
 
 class Television {
   /// deprecated: please use [turnOn] repace
@@ -18,7 +17,7 @@ class Television {
   void turnOn() {}
 
   // ignore: invalid_required_positional_param
-  String turnChannl(@required int channl, String info) {
+  String turnChannl(int channl, String info) {
     return '${channl}: ${info}';
   }
 

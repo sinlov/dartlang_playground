@@ -20,15 +20,15 @@ abstract class Cache<T> {
 }
 
 class BizCache extends Cache<String> {
-  Map<String, String> map;
+  Map<String, String>? map;
   @override
   String getByKey(String key) {
-      return map[key];
+      return map?[key]??'';
     }
 
     @override
     void setByKey(String key, String value) {
-    this.map[key] = value;
+    this.map?[key] = value;
   }
 
   BizCache.map(){

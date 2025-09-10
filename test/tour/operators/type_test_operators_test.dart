@@ -8,16 +8,14 @@ import 'package:dartlang_playground/tour/operators/type_test_operators.dart';
 main() {
   group('type_test_operators', () {
     test('type test', () {
-      var emp;
-      expect(() => (emp as Person).firstName = 'Bob', throwsNoSuchMethodError,
+      Person emp = Person();
+      expect(() => emp.firstName = 'Bob', throwsNoSuchMethodError,
           reason:
               'in dart 2.12 as to null object will throw NoSuchMethodError()');
 
       var other = Person();
       other.firstName = 'Bob';
-      if (other is Person) {
-        expect(other.firstName, equals('Bob'));
-      }
+      expect(other.firstName, equals('Bob'));
     });
   });
 }

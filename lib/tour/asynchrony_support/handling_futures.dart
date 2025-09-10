@@ -2,12 +2,9 @@
 // authorized sinlov at @2021
 // mail: sinlovppt@gmail.com
 
-var version = 'DEFAULT';
+String? version = 'DEFAULT';
 
 String lookUpVersion() {
-  if (version == null) {
-    throw NullThrownError();
-  }
   version = 'LOOK_UP';
   return 'DONE_LOOK_UP';
 }
@@ -29,19 +26,10 @@ Future checkVersion() async {
 // Then it returns a Future object, resuming execution only after the await expression completes.
 
 Future<String> findEntrypoint() async {
-  if (version == null) {
-    throw NullThrownError();
-  }
   return 'entry version passs';
 }
 
 Future<int> runExecutable(String entrypoint) async {
-  if (entrypoint == null) {
-    return -2;
-  }
-  if (version == null) {
-    return -1;
-  }
   return 0;
 }
 

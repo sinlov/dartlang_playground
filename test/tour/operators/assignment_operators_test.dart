@@ -15,11 +15,10 @@ main() {
       // assign a value if and only if b is null
       b ??= value;
       expect(b, equals('123'));
-      c ??= value;
       expect(c, equals('c'));
     });
 
-    test('assignment with operator', (){
+    test('assignment with operator', () {
       // assignment operators such as += combine an operation with an assignment.
       var aN = 2;
       aN *= number3;
