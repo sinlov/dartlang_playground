@@ -1,4 +1,3 @@
-.PHONY: test check clean build dist all
 TOP_DIR := $(shell pwd)
 # each tag change this
 ENV_DIST_VERSION := v1.0.0
@@ -7,37 +6,51 @@ ROOT_NAME ?= dartlang_playground
 
 ENV_ROOT_TEST_PATH ?= test
 
+.PHONY: env
 env:
 	dart --version
 
-pubGet:
+.PHONY: pub.get
+pub.get:
 	@dart pub get
 
-pubUpgrade:
+.PHONY: pub.upgrade
+pub.upgrade:
 	@dart pub upgrade
 
-init: pubGet
+.PHONY: init
+init: pub.get
 	@echo "init project success"
 
-buildClean:
+.PHONY: build.clean
+build.clean:
 	@dart run build_runner clean
 
+.PHONY: build
 build:
 	@dart run build_runner build
 
+.PHONY: analyze
 analyze:
 	@dart analyze
 
-test: analyze
+.PHONY: test
+test:
 	@echo "=> start test"
 	@dart test -r expanded --file-reporter json:reports/tests.json
 
-testCoverage:
+.PHONY: test.coverage
+test.coverage:
 	@find ${ENV_ROOT_TEST_PATH} -name "*_test.dart" | xargs dart run test -r expanded --coverage coverage
 
-testPlatform:
+.PHONY: test.platform
+test.platform:
 	@find ${ENV_ROOT_TEST_PATH} -name "*_test.dart" | xargs dart run test -r expanded -p "chrome,vm"
 
+.PHONY: ci
+ci: analyze test
+
+.PHONY: helpProjectRoot
 helpProjectRoot:
 	@echo "Help: Project root Makefile"
 	@echo "-- now build name: $(ROOT_NAME) version: $(ENV_DIST_VERSION)"
@@ -46,8 +59,9 @@ helpProjectRoot:
 	@echo "~> make init               ~> init project for build"
 	@echo "~> make build              ~> build project for must build"
 	@echo "~> make test               ~> run test"
-	@echo "~> make testCoverage       ~> run test coverage"
-	@echo "~> make testPlatform       ~> run test at platform"
+	@echo "~> make test.coverage      ~> run test coverage"
+	@echo "~> make test.platform      ~> run test at platform"
 
+.PHONY: help
 help: helpProjectRoot
 	@echo "more info see makefile"
