@@ -41,7 +41,7 @@ void main() {
       expect(i, isNot(null));
       expect(true, equals(true));
       expect(map[i], equals("int"));
-      expect(set.runtimeType.toString(), equals("_UnmodifiableSet<int>"));
+      expect(set.runtimeType.toString(), equals("_ConstSet<int>"));
     });
   });
 }

@@ -7,9 +7,9 @@ import 'package:test/test.dart';
 main() {
   group('string_demo', () {
     test('string demo', () {
-       // todo: test case
-       // var stringDemo = StringDemo();
-       expect('', equals(''));
+      // todo: test case
+      // var stringDemo = StringDemo();
+      expect('', equals(''));
     });
   });
 }

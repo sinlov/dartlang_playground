@@ -8,9 +8,9 @@ import 'package:dartlang_playground/tour/functions/function.dart';
 main() {
   group('function', () {
     test('define function', () {
-       expect(isNoble(1), isTrue);
-       expect(isNobleOmit(2), isTrue);
-       expect(isNobleSort(3), isTrue);
+      expect(isNoble(1), isTrue);
+      expect(isNobleOmit(2), isTrue);
+      expect(isNobleSort(3), isTrue);
     });
   });
 }

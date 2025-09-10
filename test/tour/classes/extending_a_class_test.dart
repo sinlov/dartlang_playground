@@ -19,6 +19,5 @@ main() {
       var superTelevision = SuperTelevision();
       expect(superTelevision.turnOn(), equals(1));
     });
-
   });
 }

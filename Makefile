@@ -39,6 +39,11 @@ test:
 	@echo "=> start test"
 	@dart test -r expanded --file-reporter json:reports/tests.json
 
+.PHONY: test.html
+test.html:
+	@echo "=> start test"
+	@dart test -r expanded --file-reporter html:reports/tests.html
+
 .PHONY: test.coverage
 test.coverage:
 	@find ${ENV_ROOT_TEST_PATH} -name "*_test.dart" | xargs dart run test -r expanded --coverage coverage

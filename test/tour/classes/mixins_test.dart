@@ -8,8 +8,8 @@ import 'package:dartlang_playground/tour/classes/mixins.dart';
 main() {
   group('mixins', () {
     test('mixins', () {
-       var singerDancer = SingerDancer();
-       singerDancer.entertainMe();
+      var singerDancer = SingerDancer();
+      singerDancer.entertainMe();
     });
   });
 }

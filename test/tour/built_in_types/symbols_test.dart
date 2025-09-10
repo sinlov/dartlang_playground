@@ -8,8 +8,8 @@ main() {
   group('symbols', () {
     test('get', () {
       expect(#symbol_redex, isNotNull);
-       print('symbol_redex hash: ${#symbol_redex.hashCode}');
-       expect(#bar, isNotNull);
+      print('symbol_redex hash: ${#symbol_redex.hashCode}');
+      expect(#bar, isNotNull);
     });
   });
 }

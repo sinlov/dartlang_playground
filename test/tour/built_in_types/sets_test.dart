@@ -20,7 +20,13 @@ main() {
     });
 
     test('the spread operator', () {
-      var tmp = <String>{'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+      var tmp = <String>{
+        'fluorine',
+        'chlorine',
+        'bromine',
+        'iodine',
+        'astatine'
+      };
       var spreadSet = <String>{'spreadSet', ...tmp};
       expect(spreadSet.length, equals(6));
       var setNull;

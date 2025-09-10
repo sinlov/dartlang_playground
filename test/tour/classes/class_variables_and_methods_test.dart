@@ -15,7 +15,7 @@ main() {
       var a = Point(2, 2);
       var b = Point(4, 4);
       var distance = Point.distanceBetween(a, b);
-      expect(2.8< distance && distance< 2.9, isTrue);
+      expect(2.8 < distance && distance < 2.9, isTrue);
     });
   });
 }

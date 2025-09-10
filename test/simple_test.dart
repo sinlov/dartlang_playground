@@ -1,9 +1,7 @@
-@Tags(['presubmit-only'])
 // more info see https://pub.flutter-io.cn/packages/test
 import 'package:test/test.dart';
 
 void main() {
-
   group('String', () {
     test('.split() splits the string on the delimiter', () {
       var string = 'foo,bar,baz';

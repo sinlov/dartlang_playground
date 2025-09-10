@@ -37,17 +37,11 @@ main() {
         'second': 'turtledoves',
         'fifth': 'golden rings'
       };
-      var spreadMap = {
-        'spreadMap' : 'spreadMap',
-        ...tmp
-      };
+      var spreadMap = {'spreadMap': 'spreadMap', ...tmp};
       expect(spreadMap.length, equals(4));
 
       var tmpNull;
-      var spreadMapSafe = {
-        'spreadMapSafe': 'spreadMapSafe',
-        ...?tmpNull
-      };
+      var spreadMapSafe = {'spreadMapSafe': 'spreadMapSafe', ...?tmpNull};
       expect(spreadMapSafe.length, equals(1));
     });
   });

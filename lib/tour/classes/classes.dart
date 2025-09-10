@@ -6,18 +6,18 @@ import 'dart:math';
 
 // All uninitialized instance variables have the value null.
 class A {
-  late double x; // dim double x init to null。
-  late double y; // dim double y init to null
-  late double z = 0; // dim double z init to 0。
+  double? x; // dim double x init to null。
+  double? y; // dim double y init to null
+  double? z = 0; // dim double z init to 0。
 
   // If you don’t declare a constructor, a default constructor is provided for you.
   // The default constructor has no arguments and invokes the no-argument constructor in the superclass.
 }
 
 class B {
-  late double y; // dim double y init to null
-  late double x; // dim double x init to null。
-  late double z = 0; // dim double z init to 0。
+  double? y; // dim double y init to null
+  double? x; // dim double x init to null。
+  double? z = 0; // dim double z init to 0。
   B(double x, double y, double z) {
     // this keyword refers to the current instance.
     this.x = x;
@@ -27,9 +27,9 @@ class B {
 }
 
 class C {
-  late double x; // dim double x init to null。
-  late double y; // dim double y init to null
-  late double z = 0; // dim double z init to 0。
+  double? x; // dim double x init to null。
+  double? y; // dim double y init to null
+  double? z = 0; // dim double z init to 0。
   C.origin() {
     x = 0;
     y = 0;
@@ -71,10 +71,10 @@ class F {
   F(this.x, this.y);
 
   // delegate to the main constructor y = 0
-  F.alongXAxis(double x): this(x, 0);
+  F.alongXAxis(double x) : this(x, 0);
 
   // delegate to the main constructor y = 0;
-  F.alongYAxis(double y): this(0, y);
+  F.alongYAxis(double y) : this(0, y);
 }
 
 // factory constructors
@@ -86,12 +86,10 @@ class Logger {
   bool mute = false;
 
   // _cache variable is private to the library because of the underscore in front of its name
-  static final Map<String, Logger> _cache =
-      <String, Logger>{};
+  static final Map<String, Logger> _cache = <String, Logger>{};
 
   factory Logger(String name) {
-    return _cache.putIfAbsent(
-        name, () => Logger._internal(name));
+    return _cache.putIfAbsent(name, () => Logger._internal(name));
   }
 
   factory Logger.fromJson(Map<String, Object> json) {
