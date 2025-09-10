@@ -22,7 +22,7 @@ main() {
         'point': [const ImmutablePoint(0, 0)],
         'line': [ImmutablePoint(1, 10), ImmutablePoint(-2, 11)],
       };
-      expect(pointAndLine['point'][0], equals(const ImmutablePoint(0, 0)));
+      expect(pointAndLine['point']?[0], equals(const ImmutablePoint(0, 0)));
     });
   });
 }

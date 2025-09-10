@@ -6,10 +6,10 @@ part 'point.g.dart';
 @JsonSerializable()
 class Point extends Object {
   @JsonKey(name: 'x')
-  int x;
+  int? x;
 
   @JsonKey(name: 'y')
-  int y;
+  int? y;
 
   Point(
     this.x,
@@ -23,6 +23,8 @@ class Point extends Object {
 
   // point return (x1-x2)^2 + (y1-y2)^2
   double distanceTo(Point p) {
-    return (pow(this.x - p.x, 2) + pow(this.y - p.y, 2)).toDouble();
+    return (pow((this.x ?? 0) - (p.x ?? 0), 2) +
+            pow((this.y ?? 0) - (p.y ?? 0), 2))
+        .toDouble();
   }
 }

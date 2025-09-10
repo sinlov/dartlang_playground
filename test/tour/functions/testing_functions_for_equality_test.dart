@@ -8,14 +8,14 @@ import 'package:dartlang_playground/tour/functions/testing_functions_for_equalit
 main() {
   group('testing_functions_for_equality', () {
     test('functions equality', () {
-        var x;
-        x = foo;
-        // convery top-level function
-       expect(foo, equals(x));
+      var x;
+      x = foo;
+      // convery top-level function
+      expect(foo, equals(x));
 
-       x = A.bar;
-       //  convery static function
-       expect(A.bar, equals(x));
+      x = A.bar;
+      //  convery static function
+      expect(A.bar, equals(x));
 
       // convery entry function
       var v = A();

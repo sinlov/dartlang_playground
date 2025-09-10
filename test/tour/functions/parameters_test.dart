@@ -17,12 +17,13 @@ main() {
       expect(sumNumber(number: 1, sum: 2), equals(3));
     });
 
-    test('optional positional parameters', (){
+    test('optional positional parameters', () {
       expect(say('Bob', 'Howdy'), equals('Bob says Howdy'));
-      expect(say('Bob', 'Howdy', 'smoke signal'), equals('Bob says Howdy with a smoke signal'));
+      expect(say('Bob', 'Howdy', 'smoke signal'),
+          equals('Bob says Howdy with a smoke signal'));
     });
 
-    test('default parameter values', (){
+    test('default parameter values', () {
       expect(defalutFlage(bold: true), isTrue);
       expect(doStuffList().length, equals(3));
       expect(doStuffMap().length, equals(3));

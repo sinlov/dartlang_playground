@@ -12,9 +12,9 @@ main() {
       // not use tv.activate();
       tv.turnOn();
       // override
-       expect(tv.toString(), equals('override Television toString()'));
+      expect(tv.toString(), equals('override Television toString()'));
 
-       expect(tv.turnChannl(10, "info"), equals('10: info'));
+      expect(tv.turnChannl(10, "info"), equals('10: info'));
     });
   });
 }

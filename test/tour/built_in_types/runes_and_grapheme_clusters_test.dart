@@ -9,9 +9,10 @@ import 'package:characters/characters.dart';
 main() {
   group('runes_and_grapheme_clusters', () {
     test('Unicode', () {
-       expect(laughing, equals(laughingUFT));
-       // want see emoji must use characters
-       print('Unicode: print emoji use package:characters/characters.dart as: ${hi.characters.last}');
+      expect(laughing, equals(laughingUFT));
+      // want see emoji must use characters
+      print(
+          'Unicode: print emoji use package:characters/characters.dart as: ${hi.characters.last}');
     });
   });
 }

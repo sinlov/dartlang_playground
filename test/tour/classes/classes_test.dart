@@ -16,7 +16,7 @@ main() {
       double distance = p.distanceTo(Point(4, 4));
       expect(distance, equals(8));
       // If p is non-null, set a variable equal to its y value
-      var a = p?.y;
+      var a = p.y;
       expect(a, equals(2));
     });
 
@@ -79,7 +79,7 @@ main() {
       expect(fY.y, equals(10));
     });
 
-    test('factory', (){
+    test('factory', () {
       var logger = Logger('UI');
       logger.log('Button clicked');
 

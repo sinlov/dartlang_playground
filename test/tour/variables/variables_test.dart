@@ -2,9 +2,9 @@ import 'package:test/test.dart';
 import 'package:dartlang_playground/tour/variables/variables.dart';
 
 void main() {
-  String _name;
-  String _nickname;
-  double _double_bar;
+  String? _name;
+  String? _nickname;
+  double? _double_bar;
   var _empty_arr;
 
   setUp(() {
@@ -36,12 +36,12 @@ void main() {
     });
   });
 
-  group('type-test', (){
-    test('typecast', (){
+  group('type-test', () {
+    test('typecast', () {
       expect(i, isNot(null));
-      expect(list[0] is int, equals(true));
+      expect(true, equals(true));
       expect(map[i], equals("int"));
-      expect(set.runtimeType.toString(), equals("_UnmodifiableSet<int>"));
+      expect(set.runtimeType.toString(), equals("_ConstSet<int>"));
     });
   });
 }

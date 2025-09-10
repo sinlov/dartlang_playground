@@ -8,9 +8,9 @@ import 'package:dartlang_playground/tour/generics/use_generics.dart';
 main() {
   group('use_generics', () {
     test('use generics', () {
-       var bizCache = BizCache.map();
-       bizCache.setByKey('one', 'value one');
-       expect(bizCache.getByKey('one'), equals('value one'));
+      var bizCache = BizCache.map();
+      bizCache.setByKey('one', 'value one');
+      expect(bizCache.getByKey('one'), equals('value one'));
     });
   });
 }

@@ -3,14 +3,13 @@
 // mail: sinlovppt@gmail.com
 
 import 'package:test/test.dart';
-import 'package:dartlang_playground/playground/core/string_demo.dart';
 
 main() {
   group('string_demo', () {
     test('string demo', () {
-       // todo: test case
-       // var stringDemo = StringDemo();
-       expect('', equals(''));
+      // todo: test case
+      // var stringDemo = StringDemo();
+      expect('', equals(''));
     });
   });
 }

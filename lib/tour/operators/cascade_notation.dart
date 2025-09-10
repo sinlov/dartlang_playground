@@ -3,8 +3,8 @@
 // mail: sinlovppt@gmail.com
 
 class PhoneNumber {
-  String number;
-  String label;
+  late String number;
+  late String label;
   PhoneNumber._builder(PhoneNumberBuilder builder) {
     number = builder.number;
     label = builder.label;
@@ -12,14 +12,14 @@ class PhoneNumber {
 }
 
 class PhoneNumberBuilder {
-  String number;
+  late String number;
 
   // PhoneNumberBuilder number(String number) {
   //   this._number = number;
   //   return this;
   // }
 
-  String label;
+  late String label;
 
   // PhoneNumberBuilder label(String label) {
   //   this._label = label;
@@ -32,9 +32,9 @@ class PhoneNumberBuilder {
 }
 
 class AddressBook {
-  String name;
-  String email;
-  PhoneNumber phone;
+  late String name;
+  late String email;
+  late PhoneNumber phone;
 
   AddressBook._builder(AddressBookBuilder builder) {
     name = builder.name;
@@ -44,11 +44,11 @@ class AddressBook {
 }
 
 class AddressBookBuilder {
-  String name;
+  late String name;
 
-  String email;
+  late String email;
 
-  PhoneNumber phone;
+  late PhoneNumber phone;
 
   // AddressBookBuilder name(String name) {
   //   this._name = name;

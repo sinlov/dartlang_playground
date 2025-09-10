@@ -14,9 +14,8 @@ main() {
       });
     });
 
-    test('anonymous functions arrow notation', (){
-      list.forEach(
-        (item) => expect(item, isNotNull));
+    test('anonymous functions arrow notation', () {
+      list.forEach((item) => expect(item, isNotNull));
     });
   });
 }

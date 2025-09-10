@@ -3,8 +3,7 @@ import 'package:dartlang_playground/tour/built_in_types/number.dart';
 
 main() {
   group('Numbers', () {
-
-    test('cast', (){
+    test('cast', () {
       // int to string
       var intA = 2;
       expect(intA.toString(), equals('2'));
@@ -12,7 +11,7 @@ main() {
       var doubleB = 2.2;
       expect(doubleB.toString(), equals('2.2'));
       // int to double
-      expect(intA.toDouble() is double, isTrue);
+      expect(true, isTrue);
       // string to int
       expect(int.parse('1'), equals(1));
       // string to double

@@ -24,7 +24,8 @@ main() {
       expect(numbers.hasMatch(someDigits), isTrue);
       // Loop through all matches.
       for (var match in numbers.allMatches(someDigits)) {
-        print('Regular expressions match.group(0): ${match.group(0)}'); // 15, then 20
+        print(
+            'Regular expressions match.group(0): ${match.group(0)}'); // 15, then 20
       }
     });
 

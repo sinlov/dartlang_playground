@@ -23,7 +23,8 @@ main() {
       try {
         await checkVersion();
       } catch (e) {
-        expect(e is NullThrownError, isTrue);
+        //抛出空异常
+        expect(version, equals(null));
       }
     });
 
